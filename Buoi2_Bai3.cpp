@@ -67,10 +67,21 @@ void tinhTienPhaiTra() {
     }
 }
 
+void tinhTongDoanhThu() {
+    int tongDoanhThu = 0;
+    for (int i = 0; i < n; i++) {
+        tongDoanhThu += dskh[i].tienPhaiTra;
+    }
+    printf("Tong doanh thu cua rap phim: %d VND\n", tongDoanhThu);
+}
+
+
+
 int main() {
     docDanhSachKhachHang("danhsachkhachhang.txt");
 	tinhTienPhaiTra();
     xuatDanhSachKhachHang();
+	tinhTongDoanhThu();
     return 0;
 }
 
