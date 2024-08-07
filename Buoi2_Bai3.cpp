@@ -117,6 +117,55 @@ void timKhachHangTheoPhongVaXuat() {
     }
 }
 
+void bubbleSortTheoTienPhaiTra() {
+    for (int i = 0; i < n-1; i++) {
+        for (int j = 0; j < n-i-1; j++) {
+            if (dskh[j].tienPhaiTra > dskh[j+1].tienPhaiTra) {
+                KhachHang temp = dskh[j];
+                dskh[j] = dskh[j+1];
+                dskh[j+1] = temp;
+            }
+        }
+    }
+}
+
+void selectionSortTheoTienPhaiTra() {
+    for (int i = 0; i < n-1; i++) {
+        int min_idx = i;
+        for (int j = i+1; j < n; j++) {
+            if (dskh[j].tienPhaiTra < dskh[min_idx].tienPhaiTra) {
+                min_idx = j;
+            }
+        }
+        KhachHang temp = dskh[min_idx];
+        dskh[min_idx] = dskh[i];
+        dskh[i] = temp;
+    }
+}
+
+void insertionSortTheoTienPhaiTra() {
+    for (int i = 1; i < n; i++) {
+        KhachHang key = dskh[i];
+        int j = i - 1;
+        while (j >= 0 && dskh[j].tienPhaiTra > key.tienPhaiTra) {
+            dskh[j + 1] = dskh[j];
+            j = j - 1;
+        }
+        dskh[j + 1] = key;
+    }
+}
+
+void sapXepTheoHoTen() {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (strcmp(dskh[i].hoTen, dskh[j].hoTen) > 0) {
+                KhachHang temp = dskh[i];
+                dskh[i] = dskh[j];
+                dskh[j] = temp;
+            }
+        }
+    }
+}
 
 
 int main() {
@@ -126,6 +175,9 @@ int main() {
 	tinhTongDoanhThu();
 	tinhTongDoanhThuTungPhim();
 	timKhachHangTheoPhongVaXuat();
+	bubbleSortTheoTienPhaiTra(); 
+	//selectionSortTheoTienPhaiTra()
+	//insertionSortTheoTienPhaiTra()
     return 0;
 }
 
