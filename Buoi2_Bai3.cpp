@@ -167,6 +167,23 @@ void sapXepTheoHoTen() {
     }
 }
 
+int binarySearchTheoHoTen(char* hoTen) {
+    int left = 0, right = n - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        int res = strcmp(hoTen, dskh[mid].hoTen);
+        if (res == 0) {
+            return mid;
+        }
+        if (res > 0) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return -1;
+}
+
 
 int main() {
     docDanhSachKhachHang("danhsachkhachhang.txt");
@@ -179,6 +196,15 @@ int main() {
 	//selectionSortTheoTienPhaiTra()
 	//insertionSortTheoTienPhaiTra()
 	sapXepTheoHoTen();
+
+	char hoTenTimKiem[] = "Nguyen Van An";
+    int index = binarySearchTheoHoTen(hoTenTimKiem);
+    if (index != -1) {
+        printf("Khach hang '%s' duoc tim thay tai vi tri %d trong danh sach.\n", hoTenTimKiem, index);
+    } else {
+        printf("Khach hang '%s' khong duoc tim thay.\n", hoTenTimKiem);
+    }
+
     return 0;
 }
 
