@@ -178,6 +178,7 @@ int main() {
 	bubbleSortTheoTienPhaiTra(); 
 	//selectionSortTheoTienPhaiTra()
 	//insertionSortTheoTienPhaiTra()
+	sapXepTheoHoTen();
     return 0;
 }
 
