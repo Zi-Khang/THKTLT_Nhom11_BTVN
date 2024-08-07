@@ -92,6 +92,31 @@ void tinhTongDoanhThuTungPhim() {
     }
 }
 
+void timKhachHangTheoPhongVaXuat() {
+    char phongChieu[50], xuatChieu[50];
+    
+    printf("Nhap phong chieu: ");
+    fgets(phongChieu, sizeof(phongChieu), stdin);
+    phongChieu[strcspn(phongChieu, "\n")] = '\0';
+
+    printf("Nhap xuat chieu: ");
+    fgets(xuatChieu, sizeof(xuatChieu), stdin);
+    xuatChieu[strcspn(xuatChieu, "\n")] = '\0';
+
+    printf("Danh sach khach hang dat ve cho phong chieu %s va xuat chieu %s:\n", phongChieu, xuatChieu);
+    for (int i = 0; i < n; i++) {
+        if (strcmp(dskh[i].phongChieu, phongChieu) == 0 && strcmp(dskh[i].xuatChieu, xuatChieu) == 0) {
+            printf("Khach hang %d:\n", i + 1);
+            printf("Ho va ten: %s\n", dskh[i].hoTen);
+            printf("So dien thoai: %s\n", dskh[i].soDienThoai);
+            printf("So ve nguoi lon: %d\n", dskh[i].soVeNguoiLon);
+            printf("So ve tre em: %d\n", dskh[i].soVeTreEm);
+            printf("Tien phai tra: %d\n", dskh[i].tienPhaiTra);
+            printf("\n");
+        }
+    }
+}
+
 
 
 int main() {
@@ -100,6 +125,7 @@ int main() {
     xuatDanhSachKhachHang();
 	tinhTongDoanhThu();
 	tinhTongDoanhThuTungPhim();
+	timKhachHangTheoPhongVaXuat();
     return 0;
 }
 
