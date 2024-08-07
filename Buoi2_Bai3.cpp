@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <string.h>
 
 #define MAX 100
@@ -75,6 +75,23 @@ void tinhTongDoanhThu() {
     printf("Tong doanh thu cua rap phim: %d VND\n", tongDoanhThu);
 }
 
+void tinhTongDoanhThuTungPhim() {
+    for (int i = 0; i < n; i++) {
+        int tongDoanhThuPhim = 0;
+        for (int j = 0; j < n; j++) {
+            if (strcmp(dskh[i].tenPhim, dskh[j].tenPhim) == 0) {
+                tongDoanhThuPhim += dskh[j].tienPhaiTra;
+            }
+        }
+        printf("Tong doanh thu cua phim %s: %d VND\n", dskh[i].tenPhim, tongDoanhThuPhim);
+        for (int k = 0; k < i; k++) {
+            if (strcmp(dskh[i].tenPhim, dskh[k].tenPhim) == 0) {
+                break;
+            }
+        }
+    }
+}
+
 
 
 int main() {
@@ -82,6 +99,7 @@ int main() {
 	tinhTienPhaiTra();
     xuatDanhSachKhachHang();
 	tinhTongDoanhThu();
+	tinhTongDoanhThuTungPhim();
     return 0;
 }
 
